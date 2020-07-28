@@ -46,10 +46,21 @@ public class WaypointFollower : MonoBehaviour
     void OnValidate() {
       speed = minSpeed * (1-speedFactor) + maxSpeed * (speedFactor);
     }
-
+    private void Update2() {
+      for(int i = 0;i < activeHeroes.Count;i++) {
+        GameObject hero = activeHeroes[i].gameObject;
+        Vector3 heroDistance = hero.transform.position - transform.position;
+        if(heroDistance.sqrMagnitude>heroProximityForTransition*heroProximityForTransition) {
+          return;
+        }
+      }
+      currentWaypoint = waypoints.GetNextWaypoint();
+      transform.position = currentWaypoint.transform.position;
+    }
     // Update is called once per frame
     void Update()
     {
+      // Update2();return;
         //If all living heroes are in the proximity,
         //move forward
         //speed = highest speed value of heroes
@@ -79,6 +90,7 @@ public class WaypointFollower : MonoBehaviour
         } else {
           Vector3 velocity = difference/distance * speed;
           transform.position += velocity * Time.deltaTime;
+          transform.rotation = Quaternion.LookRotation(velocity);
         }
     }
 }
