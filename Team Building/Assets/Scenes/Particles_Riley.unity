@@ -7331,6 +7331,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3001861846342560485, guid: fe0c0ac2e39a35748a8b60717ef09145, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3962708769157453021, guid: fe0c0ac2e39a35748a8b60717ef09145, type: 3}
       propertyPath: m_Name
       value: Heal 10x10
