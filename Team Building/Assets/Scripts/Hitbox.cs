@@ -13,6 +13,7 @@ public class Hitbox : MonoBehaviour
     public bool hitsHero = false;
     public GameObject parentCharacter;
     public int parentCharacterId;
+    public bool canHitSelf = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +31,7 @@ public class Hitbox : MonoBehaviour
       if(!character)return;
       if(character.isHero && !hitsHero)return;
       if(character.isEnemy && !hitsEnemy)return;
-      if(character.id == parentCharacterId)return;
+      if(!canHitSelf&&character.id == parentCharacterId)return;
       if(damage!=0) {
         character.Damage(damage);
       }

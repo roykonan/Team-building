@@ -8,6 +8,7 @@ public class Waypoints : MonoBehaviour
     private List<GameObject> waypoints;
     private bool backwards;
     public int index = 0;
+    public bool stopAtTheEnd;
     // Start is called before the first frame update
     void Awake()
     {
@@ -30,7 +31,10 @@ public class Waypoints : MonoBehaviour
       } else {
         index += 1;
         if(index>=waypoints.Count) {
-          if(loopInsteadOfBackwards) {
+          if(stopAtTheEnd) {
+            index = waypoints.Count -1;
+          }
+          else if(loopInsteadOfBackwards) {
             index = 0;
           } else {
             index-=2;

@@ -336,6 +336,7 @@ MonoBehaviour:
     attachToParent: 0
     projectileSpeed: 8
     cullBasedOnSpeedAndRange: 1
+    stopWhenInRange: 1
   healthDisplay: {fileID: 2473961094248000245}
   pathFollowPoint: {fileID: 0}
   followPointProximity: 0.5
