@@ -14,11 +14,11 @@ TagManager:
   - 
   - 
   - PostProcessingLayer
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Hero
+  - HeroTrigger
+  - Enemy
+  - EnemyTrigger
+  - Projectile
   - 
   - 
   - 
