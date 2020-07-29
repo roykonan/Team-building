@@ -16,6 +16,7 @@ public class Character : MonoBehaviour
       private float attackTimer;
       public float projectileSpeed;
       public bool cullBasedOnSpeedAndRange;
+      public bool stopWhenInRange;
       public void Update(GameObject spawnLocation, GameObject target, int id) {
         attackTimer += Time.deltaTime;
         if(attackTimer>attackSpeed) {
@@ -99,15 +100,15 @@ public class Character : MonoBehaviour
       if(distance>0) {
         transform.rotation = Quaternion.LookRotation(difference);
       }
-      bool attacking = false;
+      bool stop = false;
       for(int i =0;i<attackList.Length;i++) {
         Attack attack = attackList[i];
         if(distance<attack.attackRange) {
           attack.Update(attackSpawnLocation, targetEnemy, id);
-          attacking = true;
+          if(attack.stopWhenInRange)stop = true;
         }
       }
-      if(attacking) {
+      if(stop) {
           velocity = Vector3.Lerp(velocity, Vector3.zero, velocityLerp);
       } else {
         difference = difference/distance;
