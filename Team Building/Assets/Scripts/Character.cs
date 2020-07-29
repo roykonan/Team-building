@@ -41,7 +41,9 @@ public class Character : MonoBehaviour
       }
     }
     public static int ID = 0;
+    [HideInInspector]
     public int id;
+    [Tooltip("Units per second")]
     public float moveSpeed;
     public float maxHealth;
     private float health;
