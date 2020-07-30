@@ -6422,7 +6422,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5340273039072479150}
-  - component: {fileID: 7779020495029962550}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Untagged
@@ -6446,20 +6445,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &7779020495029962550
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5340273039072479149}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &5547401816028821028
 GameObject:
   m_ObjectHideFlags: 0
@@ -6472,7 +6457,6 @@ GameObject:
   - component: {fileID: 7978158643066402529}
   - component: {fileID: 1450675084486317414}
   - component: {fileID: 697895993987107615}
-  - component: {fileID: 7013286145161290238}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -6998,20 +6982,6 @@ MonoBehaviour:
   m_SelectedFaces: 
   m_SelectedEdges: []
   m_SelectedVertices: 
---- !u!64 &7013286145161290238
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5547401816028821028}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 0}
 --- !u!1 &6683012558140378794
 GameObject:
   m_ObjectHideFlags: 0
