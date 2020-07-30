@@ -4276,7 +4276,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6573366995985754073}
-  - component: {fileID: 8850027986795996993}
   m_Layer: 0
   m_Name: Healer
   m_TagString: Untagged
@@ -4301,20 +4300,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &8850027986795996993
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6573366995985754074}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &6573366996025500416
 GameObject:
   m_ObjectHideFlags: 0

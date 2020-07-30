@@ -3561,7 +3561,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6771124411546731497}
-  - component: {fileID: 8943878531008709489}
   m_Layer: 0
   m_Name: Gravity Mage
   m_TagString: Untagged
@@ -3586,20 +3585,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!136 &8943878531008709489
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6771124411546731498}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.7872381
-  m_Direction: 1
-  m_Center: {x: 0, y: 1.4070029, z: 0}
 --- !u!1 &6771124412141702279
 GameObject:
   m_ObjectHideFlags: 0
