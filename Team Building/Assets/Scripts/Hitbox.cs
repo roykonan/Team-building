@@ -5,8 +5,9 @@ using UnityEngine;
 public class Hitbox : MonoBehaviour
 {
     public float damage;
-    public float push;
-    public float pull;
+    public float pushAmount;
+    public float pullAmount;
+    public float pushPullTime = 0.5f;
     public float stun;
     public GameObject parent;
     public bool hitsEnemy = false;
@@ -35,11 +36,11 @@ public class Hitbox : MonoBehaviour
       if(damage!=0) {
         character.Damage(damage);
       }
-      if(push!=0) {
-        character.Push(push, parentCharacter);
+      if(pushAmount!=0) {
+        character.Push(pushAmount, pushPullTime, parentCharacter);
       }
-      if(pull!=0) {
-        character.Pull(pull, parentCharacter);
+      if(pullAmount!=0) {
+        character.Pull(pullAmount, pushPullTime, parentCharacter);
       }
       if(stun!=0) {
         character.Stun(stun);
