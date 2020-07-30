@@ -13,13 +13,16 @@ public class Character : MonoBehaviour
       [Tooltip("seconds to destroy attack. 0 is forever")]
       public float destroyAttackInSeconds;
       public bool attachToParent;
-      private float attackTimer;
+      [HideInInspector]
+      public float attackTimer;
       public float projectileSpeed;
       public bool cullBasedOnSpeedAndRange;
       public bool stopWhenInRange;
-      public void Update(GameObject spawnLocation, GameObject target, int id) {
+      public bool Update(GameObject spawnLocation, GameObject target, int id) {
+        bool doesAttack = false;
         attackTimer += Time.deltaTime;
         if(attackTimer>attackSpeed) {
+          doesAttack = true;
           attackTimer -= attackSpeed;
           GameObject instance = Instantiate(attackPrefab, spawnLocation.transform.position, spawnLocation.transform.rotation);
           foreach(Hitbox hitbox in instance.GetComponentsInChildren<Hitbox>()) {
@@ -39,6 +42,7 @@ public class Character : MonoBehaviour
             }
           }
         }
+        return doesAttack;
       }
     }
     public static int ID = 0;
@@ -54,12 +58,13 @@ public class Character : MonoBehaviour
     [SerializeField]
     public GameObject attackSpawnLocation;
     public Attack[] attackList;
-    private GameObject targetEnemy;
 
     public GameObject healthDisplay;
     [Header("path following debug")]
     public GameObject pathFollowPoint;
     public float followPointProximity = 0.5f;
+    public GameObject targetEnemy;
+    public bool moving = false;
 
     [HideInInspector]
     public bool isHero;
@@ -67,6 +72,9 @@ public class Character : MonoBehaviour
     public bool isEnemy;
 
     private float stunTimer;
+    private float pushTimer;
+    private FlashMaterial flash;
+    private GameObject model;
 
     // Start is called before the first frame update
     void Start()
@@ -74,23 +82,71 @@ public class Character : MonoBehaviour
         id = Character.ID++;
         rb = GetComponent<Rigidbody>();
         health = maxHealth;
+        flash = GetComponentInChildren<FlashMaterial>();
+        model = transform.Find("Model").gameObject;
     }
 
     // Update is called once per frame
     private void Update() {
+      if(pushTimer>0) {
+        pushTimer -= Time.deltaTime;
+        moving = false;
+      }
       if(stunTimer>0) {
         StunUpdate();
-      } else if(targetEnemy) {
+        moving = false;
+      } else if(pushTimer>0) {
+      }
+      else if(targetEnemy) {
         TargetEnemy();
+        moving = velocity != Vector3.zero;
       } else if(pathFollowPoint) {
         FollowPath();
+        moving = velocity != Vector3.zero;
+      } else {
+        moving = false;
+        velocity = Vector3.Lerp(velocity, Vector3.zero, velocityLerp);
       }
       rb.velocity = velocity;
+      AnimationUpdate();
+    }
+
+    [Header("Animation")]
+    public float animationFrq;
+    public float animationDistance;
+    public float animationRotation;
+    public float attackHeight;
+    public float attackAngle;
+    private float animationRamp = 0;
+    private void AnimationUpdate() {
+      Vector3 pos = model.transform.localPosition;
+      if(moving) {
+        if(animationRamp<1) {
+          animationRamp += 0.01f;
+        }
+        float targetY = (Mathf.Cos(Time.time*animationFrq)+1)/2 * animationDistance;
+        float rot = Mathf.Cos(Time.time*animationFrq/2) * animationRotation;
+        pos.y = targetY*animationRamp;
+        model.transform.localRotation = Quaternion.Slerp(
+          model.transform.localRotation,
+          Quaternion.Euler(0,0,rot),
+          animationRamp);
+      } else {
+        animationRamp = 0;
+        float deadLerp = 0.2f;
+        pos.y *= (1-deadLerp);
+        model.transform.localRotation = Quaternion.Slerp(
+          model.transform.localRotation,Quaternion.Euler(0,0,0), deadLerp);
+      }
+      model.transform.localPosition = pos;
     }
 
     private void StunUpdate() {
       stunTimer -= Time.deltaTime;
-      velocity = Vector3.zero;
+    }
+
+    private float EaseInOutQuad(float t) {
+      return t<.5 ? 2*t*t : -1+(4-2*t)*t;
     }
 
     private void TargetEnemy() {
@@ -104,8 +160,18 @@ public class Character : MonoBehaviour
       for(int i =0;i<attackList.Length;i++) {
         Attack attack = attackList[i];
         if(distance<attack.attackRange) {
-          attack.Update(attackSpawnLocation, targetEnemy, id);
-          if(attack.stopWhenInRange)stop = true;
+          bool doesAttack = attack.Update(attackSpawnLocation, targetEnemy, id);
+          // if(doesAttack) model.transform.localPosition += Vector3.up*1f;
+          if(attack.stopWhenInRange) {
+            stop = true;
+            Vector3 pos = model.transform.localPosition;
+            float t = attack.attackTimer/attack.attackSpeed;
+            t = EaseInOutQuad(t);
+            pos.y = t * attackHeight;
+            model.transform.localPosition = pos;
+            model.transform.localRotation = Quaternion.Euler(
+              (1-2*t)*attackAngle,0,0);
+          }
         }
       }
       if(stop) {
@@ -151,24 +217,30 @@ public class Character : MonoBehaviour
       if(health>maxHealth)health = maxHealth;
       if(health<0)Die();
       UpdateHealthDisplay();
+      if(amount>0&&flash) {
+        flash.Flash(Color.red, 0.1f);
+      }
     }
     
-    public void Push(float amount, GameObject from) {
+    public void Push(float amount, float time, GameObject from) {
       Vector3 difference = transform.position - from.transform.position;
       difference.Normalize();
       difference *= amount;
       velocity = difference;
+      pushTimer = time;
     }
 
-    public void Pull(float amount, GameObject target) {
+    public void Pull(float amount, float time, GameObject target) {
       Vector3 difference = target.transform.position - transform.position;
       difference.Normalize();
       difference *= amount;
       velocity = difference;
+      pushTimer = time;
     }
 
     public void Stun(float amount) {
       stunTimer = amount;
+      velocity = Vector3.zero;
     }
 
     public virtual void Die() {

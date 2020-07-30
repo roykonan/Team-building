@@ -185,8 +185,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2473961094248000245}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2.29, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 2.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2899286259192934636}
@@ -220,7 +220,7 @@ Transform:
   m_GameObject: {fileID: 3115643587090956867}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.1261575, y: 0.21531, z: 0.21531}
+  m_LocalScale: {x: 0.99932534, y: 0.15954988, z: 0.15954988}
   m_Children: []
   m_Father: {fileID: 6327764101028609824}
   m_RootOrder: 0
@@ -334,14 +334,22 @@ MonoBehaviour:
     attackRange: 4
     destroyAttackInSeconds: 0
     attachToParent: 0
+    attackTimer: 0
     projectileSpeed: 8
     cullBasedOnSpeedAndRange: 1
     stopWhenInRange: 1
   healthDisplay: {fileID: 2473961094248000245}
   pathFollowPoint: {fileID: 0}
   followPointProximity: 0.5
+  targetEnemy: {fileID: 0}
+  moving: 0
   isHero: 0
   isEnemy: 0
+  animationFrq: 0
+  animationDistance: 0
+  animationRotation: 0
+  attackHeight: 0
+  attackAngle: 0
 --- !u!54 &6465799625857331593
 Rigidbody:
   m_ObjectHideFlags: 0
