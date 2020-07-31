@@ -9,6 +9,7 @@ public class Waypoints : MonoBehaviour
     private bool backwards;
     public int index = 0;
     public bool stopAtTheEnd;
+    public GameObject youWinPrefab;
     // Start is called before the first frame update
     void Awake()
     {
@@ -21,7 +22,13 @@ public class Waypoints : MonoBehaviour
     }
 
     public GameObject GetNextWaypoint() {
+      if(index>=waypoints.Count&&stopAtTheEnd) {
+        GameObject w = waypoints[waypoints.Count-1];
+        Instantiate(youWinPrefab, w.transform.position, Quaternion.identity);
+        return w;
+      }
       GameObject waypoint = waypoints[index];
+   
       if(backwards) {
         index -= 1;
         if(index<0) {
@@ -32,7 +39,7 @@ public class Waypoints : MonoBehaviour
         index += 1;
         if(index>=waypoints.Count) {
           if(stopAtTheEnd) {
-            index = waypoints.Count -1;
+            index = waypoints.Count;
           }
           else if(loopInsteadOfBackwards) {
             index = 0;
