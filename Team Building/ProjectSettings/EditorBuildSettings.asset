@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/GameLoop/1-TeamSelect.unity
+    guid: e257586b360244e58aa2cc088b8e2906
+  - enabled: 1
+    path: Assets/Scenes/GameLoop/2-Battle.unity
+    guid: 4b6f223a8f0a5420596c7dd30fb79143
+  - enabled: 1
+    path: Assets/Scenes/GameLoop/3-Results.unity
+    guid: 15360256882e24f9389e3cf934cee7c2
   m_configObjects: {}
