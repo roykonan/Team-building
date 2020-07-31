@@ -18,9 +18,9 @@ public class Character : MonoBehaviour
       public float projectileSpeed;
       public bool cullBasedOnSpeedAndRange;
       public bool stopWhenInRange;
-      public bool Update(GameObject spawnLocation, GameObject target, int id) {
+      public bool Update(GameObject spawnLocation, GameObject target, int id, float timeScale) {
         bool doesAttack = false;
-        attackTimer += Time.deltaTime;
+        attackTimer += Time.deltaTime * timeScale;
         if(attackTimer>attackSpeed) {
           doesAttack = true;
           attackTimer -= attackSpeed;
@@ -88,6 +88,12 @@ public class Character : MonoBehaviour
 
     // Update is called once per frame
     private void Update() {
+      if(attackSpeedBuffTimer>0) {
+        attackSpeedBuffTimer -= Time.deltaTime;
+        if(attackSpeedBuffTimer <= 0) {
+          attackSpeedScale = 1;
+        }
+      }
       if(pushTimer>0) {
         pushTimer -= Time.deltaTime;
         moving = false;
@@ -160,7 +166,7 @@ public class Character : MonoBehaviour
       for(int i =0;i<attackList.Length;i++) {
         Attack attack = attackList[i];
         if(distance<attack.attackRange) {
-          bool doesAttack = attack.Update(attackSpawnLocation, targetEnemy, id);
+          bool doesAttack = attack.Update(attackSpawnLocation, targetEnemy, id, attackSpeedScale);
           // if(doesAttack) model.transform.localPosition += Vector3.up*1f;
           if(attack.stopWhenInRange) {
             stop = true;
@@ -241,6 +247,13 @@ public class Character : MonoBehaviour
     public void Stun(float amount) {
       stunTimer = amount;
       velocity = Vector3.zero;
+    }
+
+    private float attackSpeedBuffTimer;
+    private float attackSpeedScale = 1;
+    public void BuffAttackSpeed(float amount, float time) {
+      attackSpeedScale = amount;
+      attackSpeedBuffTimer = time;
     }
 
     public virtual void Die() {
