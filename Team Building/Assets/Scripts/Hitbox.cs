@@ -9,6 +9,9 @@ public class Hitbox : MonoBehaviour
     public float pullAmount;
     public float pushPullTime = 0.5f;
     public float stun;
+    public float buffTimer;
+    [Tooltip("Multiplies the speed. (2 is 2x faster)")]
+    public float buffAttackSpeed;
     public GameObject parent;
     public bool hitsEnemy = false;
     public bool hitsHero = false;
@@ -44,6 +47,9 @@ public class Hitbox : MonoBehaviour
       }
       if(stun!=0) {
         character.Stun(stun);
+      }
+      if(buffAttackSpeed!=0) {
+        character.BuffAttackSpeed(buffAttackSpeed, buffTimer);
       }
     }
 }
