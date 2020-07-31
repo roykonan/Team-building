@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class SelectorManager : MonoBehaviour
 {
@@ -14,16 +15,27 @@ public class SelectorManager : MonoBehaviour
     public Color defaultColor;
     private int heroesCount = 0;
     private HeroSelector selectedHero;
-    private List<HeroSelector> activeHeroes;
+    [HideInInspector]
+    public List<HeroSelector> activeHeroes;
     // Start is called before the first frame update
     void Start()
     {
+        if(instance!=null) {
+          Destroy(instance.gameObject); 
+        }
         instance = this;
+        DontDestroyOnLoad(gameObject);
+        activeHeroes = new List<HeroSelector>();
     }
 
     // Update is called once per frame
     void Update()
     {
+    }
+
+    public void Reset() {
+      heroesCount = 0;
+      activeHeroes.Clear();
     }
 
     public void SelectHero(HeroSelector heroselector) {
@@ -57,6 +69,9 @@ public class SelectorManager : MonoBehaviour
     }
 
     public void Ready() {
-
+      if(activeHeroes.Count >0) {
+        SceneManager.LoadScene("2-Battle");
+      }
     }
+
 }
