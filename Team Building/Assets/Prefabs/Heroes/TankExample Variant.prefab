@@ -129,11 +129,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6148995497490315367, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: m_Name
-      value: TankExample
+      value: TankExample Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6148995498690287256, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995498690287256, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995498690287256, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6327764101028609824, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: m_RootOrder
@@ -227,7 +235,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5340273039072479150, guid: cea262f9d4a4b0f46af60102cef5d561, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5340273039072479150, guid: cea262f9d4a4b0f46af60102cef5d561, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
