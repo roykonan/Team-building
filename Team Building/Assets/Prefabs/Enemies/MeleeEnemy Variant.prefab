@@ -142,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6617608903750377031, guid: 0999fa6118afd448cb16b8f68f8d7e09, type: 3}
       propertyPath: maxHealth
-      value: 50
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 6617608903750377031, guid: 0999fa6118afd448cb16b8f68f8d7e09, type: 3}
       propertyPath: attackList.Array.data[0].stopWhenInRange
