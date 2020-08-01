@@ -14,7 +14,7 @@ PrefabInstance:
     - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: attackList.Array.data[0].attackPrefab
       value: 
-      objectReference: {fileID: 5558047118383701116, guid: 5c488ac4904b34544b7975304a032fd0, type: 3}
+      objectReference: {fileID: 8339706268630525753, guid: 37a2b1f2f00a94af2a6ad588003c6724, type: 3}
     - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: maxHealth
       value: 60
@@ -53,14 +53,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: attackList.Array.data[0].attackSpeed
-      value: 2
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: attackList.Array.data[0].destroyAttackInSeconds
-      value: 4
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: reviveSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: knockBackResistence
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[0].attachToParent
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[1].destroyAttackInSeconds
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6148995497490315366, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
