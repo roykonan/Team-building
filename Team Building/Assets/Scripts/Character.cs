@@ -266,10 +266,12 @@ public class Character : MonoBehaviour
       }
       if(stop) {
           velocity = Vector3.Lerp(velocity, Vector3.zero, velocityLerp);
+          moving = false;
       } else {
         difference = difference/distance;
         difference *= moveSpeed;
         velocity = Vector3.Lerp(velocity, difference, velocityLerp);
+        moving = true;
       }
     }
 

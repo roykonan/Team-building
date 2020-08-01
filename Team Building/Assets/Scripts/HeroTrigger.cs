@@ -5,7 +5,7 @@ using UnityEngine;
 public class HeroTrigger : MonoBehaviour
 {
     private Character hero;
-    private void Start() {
+    private void Awake() {
       hero = GetComponentInParent<Character>();
     }
     private void OnTriggerStay(Collider other) {
