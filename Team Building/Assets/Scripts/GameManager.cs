@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public List<Hero> heroes;
     public static GameManager instance;
     public int reviveNeeded = 0;
+    public GameObject gameOver;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,9 +36,13 @@ public class GameManager : MonoBehaviour
         waypointFollower.SetHeroes(heroes);
     }
 
+    private bool gameOverFlag = false;
     // Update is called once per frame
     void Update()
     {
-        
+        if(reviveNeeded>= heroes.Count&&!gameOverFlag) {
+          gameOver.SetActive(true);
+          gameOverFlag = true;
+        }
     }
 }
