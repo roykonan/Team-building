@@ -32,12 +32,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 0}
     - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: attackList.Array.data[0].attackRange
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: attackList.Array.data[0].projectileSpeed
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: attackList.Array.data[0].attachToParent
@@ -45,10 +49,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: attackList.Array.data[0].destroyAttackInSeconds
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: attackList.Array.data[0].cullBasedOnSpeedAndRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[0].attackPrefab
+      value: 
+      objectReference: {fileID: 6196113019159824958, guid: 16021a4683deb43cabc25e13975c1477, type: 3}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackSpawnLocation
+      value: 
+      objectReference: {fileID: 6498412113403683641}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[0].attackSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[1].attackPrefab
+      value: 
+      objectReference: {fileID: 5940620255280241333, guid: 96ea3ecdc07924d5196ee3b74453cf09, type: 3}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[1].attackSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[1].attackRange
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[1].destroyAttackInSeconds
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[1].projectileSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[1].stopWhenInRange
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[1].animates
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6148995497490315366, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
@@ -140,6 +184,11 @@ PrefabInstance:
 --- !u!4 &7554621436309539167 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6148995498690287256, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+  m_PrefabInstance: {fileID: 4432376529827209159}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6498412113403683641 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7470356444511255806, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
   m_PrefabInstance: {fileID: 4432376529827209159}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7954556866396032566
