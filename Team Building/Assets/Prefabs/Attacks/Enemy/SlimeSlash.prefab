@@ -138,7 +138,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  pushAmount: 0
+  pushAmount: 1
   pullAmount: 0
   pushPullTime: 0.2
   stun: 0
@@ -152,6 +152,9 @@ MonoBehaviour:
   parentCharacter: {fileID: 0}
   parentCharacterId: 0
   canHitSelf: 0
+  spawnOnHit: {fileID: 0}
+  spawnDespawnTime: 1
+  attachSpawnedOnHitToParent: 1
 --- !u!1001 &5673790480859341488
 PrefabInstance:
   m_ObjectHideFlags: 0
