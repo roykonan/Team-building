@@ -10,8 +10,7 @@ public class SpawnInTime : MonoBehaviour
     public bool deleteAfterTime;
     public float timeToDelete;
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
         Invoke("Spawn", time);
     }
 
@@ -26,8 +25,7 @@ public class SpawnInTime : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update() {
         
     }
 }
