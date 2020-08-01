@@ -21,7 +21,9 @@ public class SmoothFollow : MonoBehaviour
         targetPosition += hero.transform.position;
         i++;
       }
-      targetPosition *= 1f/i;
-      transform.position = Vector3.Lerp(transform.position, targetPosition, lerp);
+      if(i!=0) {
+        targetPosition *= 1f/i;
+        transform.position = Vector3.Lerp(transform.position, targetPosition, lerp);
+      }
     }
 }

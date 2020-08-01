@@ -249,10 +249,10 @@ public class Character : MonoBehaviour
         if(distance<attack.attackRange) {
           bool doesAttack = attack.Update(attackSpawnLocation, targetEnemy, id, attackSpeedScale);
           // if(doesAttack) model.transform.localPosition += Vector3.up*1f;
-          if(attack.stopWhenInRange) {
+          if(attack.stopWhenInRange&&i==0) {
             stop = true;
           }
-          if(attack.animates) {
+          if(attack.animates&&i==0) {
             stop = true;
             Vector3 pos = model.transform.localPosition;
             float t = attack.attackTimer/attack.attackSpeed;
