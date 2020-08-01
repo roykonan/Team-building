@@ -92,7 +92,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 3
+  m_Radius: 6.06
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &3186198506372281202
 MonoBehaviour:
@@ -121,6 +121,9 @@ MonoBehaviour:
   parentCharacter: {fileID: 0}
   parentCharacterId: 0
   canHitSelf: 0
+  spawnOnHit: {fileID: 3200539944696475976, guid: 6a3e62a5d41702d48abcc3b434c7c547, type: 3}
+  spawnDespawnTime: 4
+  attachSpawnedOnHitToParent: 1
 --- !u!1 &1984489290991874268
 GameObject:
   m_ObjectHideFlags: 0

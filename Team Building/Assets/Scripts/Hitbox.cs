@@ -22,6 +22,9 @@ public class Hitbox : MonoBehaviour
     public int parentCharacterId;
     public bool canHitSelf = false;
     private Vector3 spawnPosition;
+    public GameObject spawnOnHit;
+    public float spawnDespawnTime = 1;
+    public bool attachSpawnedOnHitToParent = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,6 +62,13 @@ public class Hitbox : MonoBehaviour
       if(destroyOnHit) {
         if(--multiShot<=0) {
           Destroy(parent);
+        }
+      }
+      if(spawnOnHit != null) {
+        GameObject instance = Instantiate(spawnOnHit, other.transform.position, other.transform.rotation);
+        if(spawnDespawnTime!=0)Destroy(instance, spawnDespawnTime);
+        if(attachSpawnedOnHitToParent) {
+          instance.transform.parent = other.transform;
         }
       }
     }
