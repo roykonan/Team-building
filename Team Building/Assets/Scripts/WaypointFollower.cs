@@ -69,6 +69,7 @@ public class WaypointFollower : MonoBehaviour
         if(requireAllHeroes) {
           for(int i = 0;i < activeHeroes.Count;i++) {
             GameObject hero = activeHeroes[i].gameObject;
+            if(hero.GetComponent<Hero>().IsDead())continue;
             Vector3 heroDistance = hero.transform.position - transform.position;
             if(heroDistance.sqrMagnitude>heroProximity*heroProximity) {
               return;
@@ -81,6 +82,7 @@ public class WaypointFollower : MonoBehaviour
         if(distance <= waypointProximity) {
           for(int i = 0;i < activeHeroes.Count;i++) {
             GameObject hero = activeHeroes[i].gameObject;
+            if(hero.GetComponent<Hero>().IsDead())continue;
             Vector3 heroDistance = hero.transform.position - transform.position;
             if(heroDistance.sqrMagnitude>heroProximityForTransition*heroProximityForTransition) {
               return;

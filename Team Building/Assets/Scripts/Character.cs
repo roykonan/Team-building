@@ -62,6 +62,7 @@ public class Character : MonoBehaviour
     public Attack[] attackList;
 
     public GameObject healthDisplay;
+    public GameObject deadDisplay;
     [Header("path following debug")]
     public GameObject pathFollowPoint;
     public float followPointProximity = 0.5f;
@@ -90,6 +91,12 @@ public class Character : MonoBehaviour
 
     // Update is called once per frame
     private void Update() {
+      if(health<=0) {
+        DeadUpdate();
+        velocity = Vector3.Lerp(velocity, Vector3.zero, velocityLerp);
+        rb.velocity = velocity;
+        return;
+      }
       if(attackSpeedBuffTimer>0) {
         attackSpeedBuffTimer -= Time.deltaTime;
         if(attackSpeedBuffTimer <= 0) {
@@ -104,10 +111,13 @@ public class Character : MonoBehaviour
         StunUpdate();
         moving = false;
       } else if(pushTimer>0) {
-      }
-      else if(targetEnemy) {
+      } else if(isHero&&GameManager.instance.reviveNeeded>0&&prioritizeRevive) {
+        FindAndRevive();
+      } else if(targetEnemy) {
         TargetEnemy();
         moving = velocity != Vector3.zero;
+      } else if(isHero&&GameManager.instance.reviveNeeded>0) {
+        FindAndRevive();
       } else if(pathFollowPoint) {
         FollowPath();
         moving = velocity != Vector3.zero;
@@ -117,6 +127,72 @@ public class Character : MonoBehaviour
       }
       rb.velocity = velocity;
       AnimationUpdate();
+    }
+
+    public float reviveDistance = 3;
+    public float reviveSpeed = 1;
+    public bool prioritizeRevive = false;
+    private void FindAndRevive() {
+      float distance = -1;
+      Hero target = null;
+      Vector3 targetDiff = Vector3.zero;
+      float targetMag = 1;
+      foreach(Hero friend in GameManager.instance.heroes) {
+        if(friend.health<=0) {
+          Vector3 diff = friend.transform.position - transform.position;
+          float mag = diff.magnitude;
+          if(mag < distance || distance==-1) {
+            target = friend;
+            distance= mag;
+            targetDiff = diff;
+            targetMag = mag;
+          }
+        }
+      }
+      if(target!=null) {
+        transform.rotation = Quaternion.LookRotation(targetDiff);
+        if(targetMag<reviveDistance) {
+          velocity = Vector3.Lerp(velocity, Vector3.zero, velocityLerp);
+          moving = false;
+          target.Revive(reviveSpeed);
+        } else {
+          targetDiff = targetDiff/targetMag * moveSpeed;
+          moving = true;
+          velocity = Vector3.Lerp(velocity, targetDiff, velocityLerp);
+        }
+      }
+    }
+
+    private float reviveTimer;
+    private float reviveTime = 1;
+    private bool reviving = false;
+    public GameObject reviveDisplay;
+    public void Revive(float speed) {
+      if(!dead)return;
+      reviving = true;
+      reviveTimer += Time.deltaTime*speed;
+      if(reviveTimer>=reviveTime) {
+        health = maxHealth;
+        GameManager.instance.reviveNeeded -= 1;
+        dead = false;
+        deadDisplay.SetActive(false);
+        reviveTimer = 0;
+        reviveDisplay.SetActive(false);
+      }
+    }
+
+    private void DeadUpdate() {
+      if(!reviving) {
+        reviveTimer *= 0.8f;
+        reviveDisplay.SetActive(false);
+      }
+      if(reviving) {
+        reviveDisplay.SetActive(true);
+        reviveDisplay.transform.localScale = new Vector3(reviveTimer/reviveTime, 1,1);
+      }
+      reviving = false;
+      Quaternion targetRotation =  Quaternion.Euler(-90,0,0);
+      model.transform.localRotation = Quaternion.Slerp(model.transform.localRotation, targetRotation, 0.2f);
     }
 
     [Header("Animation")]
@@ -225,11 +301,21 @@ public class Character : MonoBehaviour
         healthDisplay.transform.localScale = new Vector3(health/maxHealth, 1,1);
       }
     }
-
+    private bool dead;
     public void Damage(float amount) {
+      if(dead) {
+        health = 0; return;
+      }
       health -= amount;
       if(health>maxHealth)health = maxHealth;
-      if(health<0)Die();
+      if(health<=0) {
+        if(!dead) {
+          Die();
+          reviveTimer = 0;
+          health = 0;
+        }
+        dead = true;
+      }
       UpdateHealthDisplay();
       if(amount>0&&flash) {
         flash.Flash(Color.red, 0.1f);
@@ -265,6 +351,9 @@ public class Character : MonoBehaviour
     }
 
     public virtual void Die() {
+    }
 
+    public bool IsDead() {
+      return health<=0;
     }
 }

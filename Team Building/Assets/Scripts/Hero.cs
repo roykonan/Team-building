@@ -8,5 +8,8 @@ public class Hero : Character
     {
       isHero = true;
     }
-    
+    public override void Die(){
+      deadDisplay.SetActive(true);
+      GameManager.instance.reviveNeeded += 1;
+    }
 }
