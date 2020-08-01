@@ -18,6 +18,7 @@ public class Character : MonoBehaviour
       public float projectileSpeed;
       public bool cullBasedOnSpeedAndRange;
       public bool stopWhenInRange;
+      public bool animates = true;
       public bool Update(GameObject spawnLocation, GameObject target, int id, float timeScale) {
         bool doesAttack = false;
         attackTimer += Time.deltaTime * timeScale;
@@ -173,6 +174,9 @@ public class Character : MonoBehaviour
           bool doesAttack = attack.Update(attackSpawnLocation, targetEnemy, id, attackSpeedScale);
           // if(doesAttack) model.transform.localPosition += Vector3.up*1f;
           if(attack.stopWhenInRange) {
+            stop = true;
+          }
+          if(attack.animates) {
             stop = true;
             Vector3 pos = model.transform.localPosition;
             float t = attack.attackTimer/attack.attackSpeed;
