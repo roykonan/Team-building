@@ -99,6 +99,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: CleaverHero Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 6148995498690287256, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995498690287256, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995498690287256, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6684028502265180294, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: m_Mesh
       value: 

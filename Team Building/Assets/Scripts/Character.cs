@@ -54,8 +54,9 @@ public class Character : MonoBehaviour
     private float health;
     private Vector3 velocity = Vector3.zero;
     public float velocityLerp = 0.5f;
+    [Range(-1,1)]
+    public float knockBackResistence = 0;
     private Rigidbody rb;
-    [SerializeField]
     public GameObject attackSpawnLocation;
     public Attack[] attackList;
 
@@ -124,14 +125,16 @@ public class Character : MonoBehaviour
     public float attackHeight;
     public float attackAngle;
     private float animationRamp = 0;
+    private float moveAnimationTime = 0;
     private void AnimationUpdate() {
       Vector3 pos = model.transform.localPosition;
       if(moving) {
         if(animationRamp<1) {
           animationRamp += 0.01f;
         }
-        float targetY = (Mathf.Cos(Time.time*animationFrq)+1)/2 * animationDistance;
-        float rot = Mathf.Cos(Time.time*animationFrq/2) * animationRotation;
+        moveAnimationTime += Time.deltaTime;
+        float targetY = (Mathf.Cos(moveAnimationTime*animationFrq)+1)/2 * animationDistance;
+        float rot = Mathf.Cos(moveAnimationTime*animationFrq/2) * animationRotation;
         pos.y = targetY*animationRamp;
         model.transform.localRotation = Quaternion.Slerp(
           model.transform.localRotation,
@@ -139,6 +142,7 @@ public class Character : MonoBehaviour
           animationRamp);
       } else {
         animationRamp = 0;
+        moveAnimationTime = 0;
         float deadLerp = 0.2f;
         pos.y *= (1-deadLerp);
         model.transform.localRotation = Quaternion.Slerp(
@@ -228,18 +232,18 @@ public class Character : MonoBehaviour
       }
     }
     
-    public void Push(float amount, float time, GameObject from) {
-      Vector3 difference = transform.position - from.transform.position;
+    public void Push(float amount, float time, Vector3 from) {
+      Vector3 difference = transform.position - from;
       difference.Normalize();
-      difference *= amount;
+      difference *= amount * (1-knockBackResistence);
       velocity = difference;
       pushTimer = time;
     }
 
-    public void Pull(float amount, float time, GameObject target) {
-      Vector3 difference = target.transform.position - transform.position;
+    public void Pull(float amount, float time, Vector3 target) {
+      Vector3 difference = target - transform.position;
       difference.Normalize();
-      difference *= amount;
+      difference *= amount * (1-knockBackResistence);
       velocity = difference;
       pushTimer = time;
     }

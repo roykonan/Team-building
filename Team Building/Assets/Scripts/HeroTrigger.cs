@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class HeroTrigger : MonoBehaviour
 {
-    private Hero hero;
+    private Character hero;
     private void Start() {
-      hero = GetComponentInParent<Hero>();
+      hero = GetComponentInParent<Character>();
     }
     private void OnTriggerStay(Collider other) {
       if(hero.CanTargetEnemy()) {

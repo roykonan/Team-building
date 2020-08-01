@@ -12,16 +12,20 @@ public class Hitbox : MonoBehaviour
     public float buffTimer;
     [Tooltip("Multiplies the speed. (2 is 2x faster)")]
     public float buffAttackSpeed;
+    [Header("Piercing")]
+    public bool destroyOnHit = false;
+    public int multiShot = 1;
     public GameObject parent;
     public bool hitsEnemy = false;
     public bool hitsHero = false;
     public GameObject parentCharacter;
     public int parentCharacterId;
     public bool canHitSelf = false;
+    private Vector3 spawnPosition;
     // Start is called before the first frame update
     void Start()
     {
-        
+        spawnPosition = parentCharacter.transform.position;
     }
 
     // Update is called once per frame
@@ -40,16 +44,21 @@ public class Hitbox : MonoBehaviour
         character.Damage(damage);
       }
       if(pushAmount!=0) {
-        character.Push(pushAmount, pushPullTime, parentCharacter);
+        character.Push(pushAmount, pushPullTime, spawnPosition);
       }
       if(pullAmount!=0) {
-        character.Pull(pullAmount, pushPullTime, parentCharacter);
+        character.Pull(pullAmount, pushPullTime, spawnPosition);
       }
       if(stun!=0) {
         character.Stun(stun);
       }
       if(buffAttackSpeed!=0) {
         character.BuffAttackSpeed(buffAttackSpeed, buffTimer);
+      }
+      if(destroyOnHit) {
+        if(--multiShot<=0) {
+          Destroy(parent);
+        }
       }
     }
 }
