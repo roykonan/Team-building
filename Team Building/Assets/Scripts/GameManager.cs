@@ -6,10 +6,14 @@ public class GameManager : MonoBehaviour
 {
     public GameObject heroesHolder;
     public WaypointFollower waypointFollower;
+    public List<Hero> heroes;
+    public static GameManager instance;
+    public int reviveNeeded = 0;
     // Start is called before the first frame update
     void Start()
     {
-        List<Hero> heroes = new List<Hero>();
+      instance = this;
+        heroes = new List<Hero>();
         int i =0;
         if(SelectorManager.instance==null) {
           foreach (Hero hero in heroesHolder.GetComponentsInChildren<Hero>())

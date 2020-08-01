@@ -15,6 +15,13 @@ public class SmoothFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      transform.position = Vector3.Lerp(transform.position, target.transform.position, lerp);
+      Vector3 targetPosition = Vector3.zero;
+      int i = 0;
+      foreach(Hero hero in GameManager.instance.heroes) {
+        targetPosition += hero.transform.position;
+        i++;
+      }
+      targetPosition *= 1f/i;
+      transform.position = Vector3.Lerp(transform.position, targetPosition, lerp);
     }
 }
