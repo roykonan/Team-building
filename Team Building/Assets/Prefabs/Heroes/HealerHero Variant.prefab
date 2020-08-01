@@ -7,6 +7,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[1].attackPrefab
+      value: 
+      objectReference: {fileID: 7875782767228636542, guid: 532ca760eee4e476fa52b9d01c04f276, type: 3}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[1].attackSpeed
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[1].attackRange
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[1].projectileSpeed
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[1].cullBasedOnSpeedAndRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[1].stopWhenInRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[1].animates
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6148995497490315366, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

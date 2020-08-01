@@ -58,7 +58,7 @@ PrefabInstance:
     - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: attackList.Array.data[0].attackPrefab
       value: 
-      objectReference: {fileID: 6196113019159824958, guid: 16021a4683deb43cabc25e13975c1477, type: 3}
+      objectReference: {fileID: 2068974873959857050, guid: eec5ce2229a974885b24c60df8257bc8, type: 3}
     - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: attackSpawnLocation
       value: 
