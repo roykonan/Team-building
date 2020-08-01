@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class FlashAllChildMaterials : FlashMaterial
 {
-    private List<Color> startColor = new List<Color>();
+    private List<Color> startColors = new List<Color>();
     private MeshRenderer[] renderers;
     // Start is called before the first frame update
     void Start()
     {
         renderers = GetComponentsInChildren<MeshRenderer>();
         foreach(MeshRenderer r in renderers) {
-          startColor.Add(r.material.color);
+          startColors.Add(r.material.color);
         }
     }
 
@@ -25,7 +25,7 @@ public class FlashAllChildMaterials : FlashMaterial
     void ResetColors() {
       int i = 0;
       foreach(MeshRenderer r in renderers) {
-        r.material.color = startColor[i++];
+        r.material.color = startColors[i++];
       }
     }
 }
