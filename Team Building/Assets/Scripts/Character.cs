@@ -173,6 +173,7 @@ public class Character : MonoBehaviour
       reviveTimer += Time.deltaTime*speed;
       if(reviveTimer>=reviveTime) {
         health = maxHealth;
+        UpdateHealthDisplay();
         GameManager.instance.reviveNeeded -= 1;
         dead = false;
         deadDisplay.SetActive(false);
