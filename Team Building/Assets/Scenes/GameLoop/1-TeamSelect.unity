@@ -814,12 +814,9 @@ PrefabInstance:
       objectReference: {fileID: 7217448796962956835, guid: 884ba062959234ad4a430ddb07ad2d37, type: 3}
     - target: {fileID: 8451357901910096333, guid: 8f8d798e31d9448759c3a2f8be43eb4e, type: 3}
       propertyPath: description
-      value: 'Health: 120
-
-        Damage: 10
-
-        Unabashedly edgy, Shadow focuses
-        on dps. Attacking rapdily, he doesn''t care much for special attacks.'
+      value: "Health: 120 \nDamage: 10\nAttack Speed: Very Fast\nAbility: Killing
+        people\nUnabashedly edgy, Shadow focuses on dps. Attacking rapdily, he doesn't
+        care much for special attacks."
       objectReference: {fileID: 0}
     - target: {fileID: 8451357903497453061, guid: 8f8d798e31d9448759c3a2f8be43eb4e, type: 3}
       propertyPath: m_textInfo.characterCount
@@ -4023,11 +4020,16 @@ PrefabInstance:
       propertyPath: description
       value: 'Health: 100
 
-        Damage: 5
+        Damage: 10
 
-        Noey is a believer in "Spin
-        to Win". Often performing a spinning slash attack, it''s a wonder she doesn''t
-        get dizzy!'
+        Attack speed: Fast
+
+        Ability:
+        Spins! Doing 5 AOE damage to all surrounding enemies
+
+        Noey is a believer
+        in "Spin to Win". Often performing a spinning slash attack, it''s a wonder
+        she doesn''t get dizzy!'
       objectReference: {fileID: 0}
     - target: {fileID: 8451357903497453061, guid: 8f8d798e31d9448759c3a2f8be43eb4e, type: 3}
       propertyPath: m_textInfo.characterCount
@@ -5166,12 +5168,17 @@ PrefabInstance:
       objectReference: {fileID: 5940873016882034563, guid: 05a26c435d96d482db0a333ecbea9d44, type: 3}
     - target: {fileID: 8451357901910096333, guid: 8f8d798e31d9448759c3a2f8be43eb4e, type: 3}
       propertyPath: description
-      value: 'Health: 170
+      value: 'Health: 100
 
-        Damage: 5
+        Damage 5
 
-        Everyone loves Mom. Mom is
-        great, keeping everyone alive with a big heal on a longer cooldown.'
+        Attack speed: slow
+
+        Ability:
+        AOE Heal of 10 to all friends
+
+        Everyone loves Mom. Mom is great,
+        keeping everyone alive with a big heal on a longer cooldown.'
       objectReference: {fileID: 0}
     - target: {fileID: 8451357903497453061, guid: 8f8d798e31d9448759c3a2f8be43eb4e, type: 3}
       propertyPath: m_textInfo.characterCount
@@ -9124,8 +9131,13 @@ PrefabInstance:
 
         Damage: 5
 
+        Attack Speed: Slow
+
+        Ability:
+        a large AOE Heal with High Cooldown
+
         A reliable friend, Cookie doesn''t
-        deal much damage, but often casts a small heal for nearby allies.'
+        deal much damage, but often casts a big heal for nearby allies.'
       objectReference: {fileID: 0}
     - target: {fileID: 8451357903497453061, guid: 8f8d798e31d9448759c3a2f8be43eb4e, type: 3}
       propertyPath: m_textInfo.characterCount
@@ -11130,13 +11142,9 @@ PrefabInstance:
       objectReference: {fileID: 2349375074973791598, guid: 9373bff6abb13453bb6b40a1e1326c28, type: 3}
     - target: {fileID: 8451357901910096333, guid: 8f8d798e31d9448759c3a2f8be43eb4e, type: 3}
       propertyPath: description
-      value: 'Health: 50
-
-        Damage: 0
-
-        No one knows where Bob came
-        from, they just showed up one day. They don''t attack, but empower others
-        around them.'
+      value: "Health: 50\nDamage: 0 (he\u2019s a pacifist)\nAbility: that buffs friends
+        attack speed x2\nNo one knows where Bob came from, they just showed up one
+        day. They don't attack, but empower others around them."
       objectReference: {fileID: 0}
     - target: {fileID: 8451357903497453061, guid: 8f8d798e31d9448759c3a2f8be43eb4e, type: 3}
       propertyPath: m_textInfo.characterCount
@@ -13487,8 +13495,14 @@ PrefabInstance:
 
         Damage: 20
 
-        A caster, Smohn does a lot
-        of damage and pulls enemies together to help the rest of his team.'
+        Attack speed: super slow
+
+        Ability:
+        High Cooldown, pulls enemies towards a point in as an AOE
+
+        A caster,
+        Smohn does a lot of damage and pulls enemies together to help the rest of
+        his team.'
       objectReference: {fileID: 0}
     - target: {fileID: 8451357903497453061, guid: 8f8d798e31d9448759c3a2f8be43eb4e, type: 3}
       propertyPath: m_textInfo.characterCount
@@ -13624,11 +13638,16 @@ PrefabInstance:
       propertyPath: description
       value: 'Health: 60
 
-        Damage: 5
+        Damage:5
 
-        The leader of the group, Qwaxy
-        organizes raids and  hangouts. In battle, she tries to make sure people are
-        in position to get heals.'
+        Attack speed: slow
+
+        Ability:
+        Pushes and Pulls all friends towards themself
+
+        The leader of the
+        group, Qwaxy organizes raids and  hangouts. In battle, she tries to make
+        sure people are in position to get heals.'
       objectReference: {fileID: 0}
     - target: {fileID: 8451357903497453061, guid: 8f8d798e31d9448759c3a2f8be43eb4e, type: 3}
       propertyPath: m_textInfo.characterCount
@@ -16168,10 +16187,15 @@ PrefabInstance:
       propertyPath: description
       value: 'Health: 200
 
-        Damage: 5
+        Damage: 10
 
-        Loud and proud, Fish tries
-        to soak up damage for his teammates. Periodically, he may leap to their defense!'
+        Attack Speed: Fast
+
+        Ability:
+        Every other hit stuns!
+
+        Loud and proud, Fish tries to soak up damage
+        for his teammates. Periodically, he may leap to their defense!'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8f8d798e31d9448759c3a2f8be43eb4e, type: 3}
