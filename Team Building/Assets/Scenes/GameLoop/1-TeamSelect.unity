@@ -11142,9 +11142,16 @@ PrefabInstance:
       objectReference: {fileID: 2349375074973791598, guid: 9373bff6abb13453bb6b40a1e1326c28, type: 3}
     - target: {fileID: 8451357901910096333, guid: 8f8d798e31d9448759c3a2f8be43eb4e, type: 3}
       propertyPath: description
-      value: "Health: 50\nDamage: 0 (he\u2019s a pacifist)\nAbility: that buffs friends
-        attack speed x2\nNo one knows where Bob came from, they just showed up one
-        day. They don't attack, but empower others around them."
+      value: 'Health: 50
+
+        Damage: 0 (They''re a pacifist)
+
+        Ability:
+        that buffs friends attack speed x2
+
+        No one knows where Bob came from,
+        they just showed up one day. They don''t attack, but empower others around
+        them.'
       objectReference: {fileID: 0}
     - target: {fileID: 8451357903497453061, guid: 8f8d798e31d9448759c3a2f8be43eb4e, type: 3}
       propertyPath: m_textInfo.characterCount
