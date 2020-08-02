@@ -250,7 +250,7 @@ public class Character : MonoBehaviour
         if(distance<attack.attackRange) {
           bool doesAttack = attack.Update(attackSpawnLocation, targetEnemy, id, attackSpeedScale);
           // if(doesAttack) model.transform.localPosition += Vector3.up*1f;
-          if(attack.stopWhenInRange&&i==0) {
+          if(attack.stopWhenInRange&&i==0&&distance<attack.attackRange-1) {
             stop = true;
           }
           if(attack.animates&&i==0) {

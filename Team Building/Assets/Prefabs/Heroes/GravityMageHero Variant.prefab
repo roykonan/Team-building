@@ -46,7 +46,7 @@ PrefabInstance:
     - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: attackList.Array.data[0].attackPrefab
       value: 
-      objectReference: {fileID: 5558047118383701116, guid: 5c488ac4904b34544b7975304a032fd0, type: 3}
+      objectReference: {fileID: 5558047118383701116, guid: b89df398ed6554d5ca871c13d1ea8c69, type: 3}
     - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: attackList.Array.data[0].attackSpeed
       value: 2
@@ -58,6 +58,18 @@ PrefabInstance:
     - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: reviveSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[1].destroyAttackInSeconds
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[0].attackRange
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6148995497490315365, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
+      propertyPath: attackList.Array.data[0].projectileSpeed
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 6148995497490315366, guid: ec3186c23a2da48a5bd52092a2151e21, type: 3}
       propertyPath: m_LocalPosition.x
