@@ -4022,7 +4022,7 @@ PrefabInstance:
 
         Damage: 10
 
-        Attack speed: Fast
+        Attack Speed: Fast
 
         Ability:
         Spins! Doing 5 AOE damage to all surrounding enemies
@@ -5172,7 +5172,7 @@ PrefabInstance:
 
         Damage 5
 
-        Attack speed: slow
+        Attack Speed: Slow
 
         Ability:
         AOE Heal of 10 to all friends
@@ -13502,7 +13502,7 @@ PrefabInstance:
 
         Damage: 20
 
-        Attack speed: super slow
+        Attack Speed: Super Slow
 
         Ability:
         High Cooldown, pulls enemies towards a point in as an AOE
@@ -13647,7 +13647,7 @@ PrefabInstance:
 
         Damage:5
 
-        Attack speed: slow
+        Attack Speed: Slow
 
         Ability:
         Pushes and Pulls all friends towards themself
